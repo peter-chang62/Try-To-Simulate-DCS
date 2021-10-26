@@ -47,10 +47,6 @@ def find_allowed_nyquist_bandwidths(vi, vf):
     :param vi: start of power spectrum
     :param vf: end of power spectrum
 
-    For clear reasons, your Nyquist bandwidth cannot be smaller than the bandwidth of your power spectrum. Also for
-    clear reasons, any Nyquist bandwidth larger than vf will be okay, because your power spectrum will lie within the
-    first Nyquist zone.
-
     For Nyquist bandwidths that lie within the region: (vf - vi < dnu < vf), your Nyquist bandwidth is larger than
     the bandwidth of your power spectrum, but your signal does not lie within the first Nyquist zone. Here,
     you run the danger that your power spectrum might span the boundary between two Nyquist zones. As a result,
@@ -105,8 +101,7 @@ plt.plot(dfr[ind], x[ind], '.')
 [plt.axvline(i) for i in allowed_dfr_windows.flatten()]
 plt.axvline(fr ** 2 / (2 * end))
 
-"""also as a quick example, I wanted to point out that given an fr an dfr, we can also calculate the nearest fr, 
-or nearest dfr that would give us an integer ppifg.
+"""Given an fr an dfr, we can also calculate the nearest fr, or nearest dfr that would give us an integer ppifg. 
 
 In the following, fr and dfr do not give an integer ppifg. However, if we change fr -> corr_fr1 or fr -> corr_fr2 
 and keep the same dfr, then we will get an integer ppifg.
@@ -116,7 +111,7 @@ Likewise, if we change dfr -> corr_dfr1 or dfr -> corr_dfr2 and keep the same fr
 In the above, the two possible corrected rep rates, or two possible corrected delta freps give ppifg that differ
 by one. 
 
-I would note that generally it is easier to apply corrections to dfr, since those corrections are much much smaller than
+Generally it is easier to apply corrections to dfr, since those corrections are much much smaller than
 corrections to fr. This is expected since ppifg = fr / dfr and fr >> dfr. 
 
 Secondly, if applying corrections to dfr it is important that when applying corrections you keep fr1 = fr fixed, 
