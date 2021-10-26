@@ -13,10 +13,6 @@ def bandwidth(fr, dfr):
     return fr ** 2 / (2 * dfr)
 
 
-def within(item, target, span):
-    return target - span / 2 <= item <= target + span / 2
-
-
 def calc_num_for_mod_cond(num, denom):
     N_smaller = num // denom
     N_bigger = N_smaller + 1
