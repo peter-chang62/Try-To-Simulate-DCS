@@ -39,7 +39,7 @@ def is_aliasing(vi, vf, dnu):
     n1 = vi // dnu
     n2 = vf // dnu + 1
     cond = n2 - n1 > 1
-    return cond, n1, n2
+    return cond, n2 - n1, n2
 
 
 def find_allowed_nyquist_bandwidths(vi, vf):
@@ -121,9 +121,8 @@ fr = 1e9
 dfr = 23e3
 corr_dfr1, corr_dfr2 = calc_denom_for_mod_cond(fr, dfr)
 corr_fr1, corr_fr2 = calc_num_for_mod_cond(fr, dfr)
-print("original ppifg: ", fr/dfr)
-print("corrected ppifg fr/corr_dfr1 :", fr/corr_dfr1)
-print("corrected ppifg fr/corr_dfr2 :", fr/corr_dfr2)
-print("corrected ppifg corr_fr1/dfr :", corr_fr1/dfr)
-print("corrected ppifg corr_fr2/dfr :", corr_fr2/dfr)
-
+print("original ppifg: ", fr / dfr)
+print("corrected ppifg fr/corr_dfr1 :", fr / corr_dfr1)
+print("corrected ppifg fr/corr_dfr2 :", fr / corr_dfr2)
+print("corrected ppifg corr_fr1/dfr :", corr_fr1 / dfr)
+print("corrected ppifg corr_fr2/dfr :", corr_fr2 / dfr)
